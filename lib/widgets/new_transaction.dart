@@ -1,5 +1,10 @@
 // ignore_for_file: unnecessary_const
 
+// import 'dart:html';
+import 'dart:io';
+
+import 'package:expense_project1/widgets/adaptive_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -68,6 +73,7 @@ class _NewTransactionState extends State<NewTransaction> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                // CupertinoTextField(),for ios text field
                 TextField(
                   decoration: const InputDecoration(
                     label: Text(" Title"),
@@ -90,15 +96,7 @@ class _NewTransactionState extends State<NewTransaction> {
                             ? 'No Date Chosen'
                             : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}'),
                       ),
-                      FlatButton(
-                          onPressed: _presentDatePicker,
-                          child: const Text(
-                            'Choose Date',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          textColor: Theme.of(context).primaryColor),
+                      AdaptiveButton('Choose Date', _presentDatePicker)
                     ],
                   ),
                 ),
